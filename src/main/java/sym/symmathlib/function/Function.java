@@ -1,6 +1,7 @@
 package sym.symmathlib.function;
 
-public class Function
+public abstract class Function
 {
-
+	double[] range;
+	public abstract double get(double x);
 }
