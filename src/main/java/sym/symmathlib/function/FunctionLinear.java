@@ -2,7 +2,7 @@ package sym.symmathlib.function;
 
 import sym.symmathlib.vector.VecTool;
 
-public class FunctionLinear extends Function
+class FunctionLinear extends Function
 {
 	int length;
 	double[] xs;
