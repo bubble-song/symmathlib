@@ -1,6 +1,6 @@
 package sym.symmathlib.function;
 
-public class Function1
+public class Function
 {
 
 }
