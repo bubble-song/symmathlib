@@ -1,4 +1,4 @@
-package sym.symmathlib;
+package sym.symmathlib.constant;
 
 public class Constant
 {

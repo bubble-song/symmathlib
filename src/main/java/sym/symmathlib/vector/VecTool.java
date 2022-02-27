@@ -1,5 +1,8 @@
 package sym.symmathlib.vector;
 
+import java.util.Comparator;
+import java.util.stream.IntStream;
+
 public class VecTool
 {
 	
@@ -81,6 +84,18 @@ public class VecTool
 	
 	//transform methods
 	
+	public static double[] copy(double[] xs)
+	{
+		double[] target = new double[xs.length];
+		return copy(xs, target);
+	}
+	
+	public static double[] copy(double[] xs, double[] target)
+	{
+		System.arraycopy(xs, 0, target, 0, xs.length);
+		return target;
+	}
+	
 	public static double[] trans(Func1 func, double[] xs)
 	{
 		double[] target = new double[xs.length];
@@ -96,10 +111,14 @@ public class VecTool
 		return target;
 	}
 	
+	public static int[] getOrdering(double[] vec1)
+	{
+		int[] ordering = IntStream.range(0, vec1.length).boxed().sorted(Comparator.comparingDouble(i -> vec1[i])).mapToInt(ele -> ele).toArray();
+		return ordering;
+	}
 	
-	//	aa
+	
 	@FunctionalInterface
-	
 	public interface Func0
 	{
 		double calc();

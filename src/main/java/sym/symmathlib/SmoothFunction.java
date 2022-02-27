@@ -68,11 +68,13 @@ public class SmoothFunction
 			if(x < xs[0])
 			{
 				return ys[0];
-			} else
+			}
+			else
 			{
 				return ys[length - 1];
 			}
-		} else
+		}
+		else
 		{
 			while(x > xs[cur + 1])
 			{
@@ -130,7 +132,8 @@ public class SmoothFunction
 		if(x1 < xs[0] || x1 > xs[length - 1] || x2 < xs[0] || x2 > xs[length - 1])
 		{
 			throw new RuntimeException("smooth function range out of available range!");
-		} else
+		}
+		else
 		{
 			double val1 = 1d / 6;
 			double val2 = 1d / 3;
@@ -243,7 +246,8 @@ public class SmoothFunction
 		{
 			x1 = xs[0];
 			x2 = x1 + 2 * sigma;
-		} else if(x2 > xs[length - 1])
+		}
+		else if(x2 > xs[length - 1])
 		{
 			x2 = xs[length - 1];
 			x1 = x2 - 2 * sigma;
@@ -277,7 +281,8 @@ public class SmoothFunction
 		{
 			x1 = xs[0];
 			x2 = x1 + 2 * sigma;
-		} else if(x2 > xs[length - 1])
+		}
+		else if(x2 > xs[length - 1])
 		{
 			x2 = xs[length - 1];
 			x1 = x2 - 2 * sigma;
@@ -307,7 +312,8 @@ public class SmoothFunction
 		{
 			x1 = xs[0];
 			x2 = x1 + 2 * sigma;
-		} else if(x2 > xs[length - 1])
+		}
+		else if(x2 > xs[length - 1])
 		{
 			x2 = xs[length - 1];
 			x1 = x2 - 2 * sigma;
