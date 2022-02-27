@@ -1,9 +1,12 @@
 package sym.symmathlib;
 
+import sym.symmathlib.vector.VecTool;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileOutputStream;import java.io.FileOutputStream;
+
 
 public class SmoothFunction
 {
@@ -45,7 +48,7 @@ public class SmoothFunction
 		}
 	}
 	
-	public static double integral(VecTool.Func func, double x1, double x2, int datapointCount)
+	public static double integral(VecTool.Func1 func, double x1, double x2, int datapointCount)
 	{
 		double delta = (x2 - x1) / datapointCount;
 		double s = 0;
@@ -121,7 +124,7 @@ public class SmoothFunction
 		return s;
 	}
 	
-	public double convolution(VecTool.Func func, double x1, double x2)
+	public double convolution(VecTool.Func1 func, double x1, double x2)
 	{
 		//enhanced accuracy
 		if(x1 < xs[0] || x1 > xs[length - 1] || x2 < xs[0] || x2 > xs[length - 1])
@@ -253,7 +256,7 @@ public class SmoothFunction
 		
 		double val1 = Math.PI / sigma;
 		double val2 = 1 / (3 * sigma);
-		VecTool.Func weight = (double _x) ->
+		VecTool.Func1 weight = (double _x) ->
 		{
 			double dr = val1 * (_x - center);
 			double c = Math.cos(dr);
@@ -283,7 +286,7 @@ public class SmoothFunction
 		
 		double val1 = Math.PI / sigma;
 		double val2 = -1 / (3 * sigma) * val1;
-		VecTool.Func weight = (double _x) ->
+		VecTool.Func1 weight = (double _x) ->
 		{
 			double dr = val1 * (_x - center);
 			double c = Math.cos(dr);
@@ -313,7 +316,7 @@ public class SmoothFunction
 		
 		double val1 = Math.PI / sigma;
 		double val2 = 1 / (3 * sigma) * val1 * val1;
-		VecTool.Func weight = (double _x) ->
+		VecTool.Func1 weight = (double _x) ->
 		{
 			double dr = val1 * (_x - center);
 			double c = Math.cos(dr);
