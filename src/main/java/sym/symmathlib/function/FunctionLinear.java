@@ -59,4 +59,46 @@ class FunctionLinear extends Function
 			cur--;
 		}
 	}
+	
+	@Override
+	public double binaryGet(double x)
+	{
+		if(x < range[0])
+		{
+			return ys[0];
+		}
+		else if(x > range[1])
+		{
+			return ys[length - 1];
+		}
+		else
+		{
+			int _cur;
+			{
+				int cur1 = 0;
+				int cur2 = length - 1;
+				int cur3;
+				while(cur1 < cur2 - 1)
+				{
+					cur3 = (cur1 + cur2) / 2;
+					if(x < xs[cur3])
+					{
+						cur2 = cur3;
+					}
+					else
+					{
+						cur1 = cur3;
+					}
+				}
+				_cur = cur1;
+			}
+			
+			double x1 = xs[_cur];
+			double x2 = xs[_cur + 1];
+			double y1 = ys[_cur];
+			double y2 = ys[_cur + 1];
+			double y = (y1 * (x2 - x) + y2 * (x - x1)) / (x2 - x1);
+			return y;
+		}
+	}
 }

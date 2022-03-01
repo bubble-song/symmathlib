@@ -12,4 +12,9 @@ public abstract class Function
 	}
 	
 	public abstract double get(double x);
+	
+	public double binaryGet(double x)
+	{
+		return get(x);
+	}
 }
