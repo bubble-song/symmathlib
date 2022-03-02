@@ -4,7 +4,7 @@ import sym.symmathlib.function.Interpolator;
 import sym.symmathlib.vector.VecTool;
 import sym.symplotlib.Plot;
 
-class Test1
+public class Test1
 {
 	public static void main(String[] args)
 	{
