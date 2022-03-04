@@ -39,4 +39,19 @@ public class Solver
 			return x1;
 		}
 	}
+	
+	//return the root starting from x1, return one of them if multiple are present
+	public static double newtonianGetRoot(Function func, double _x1, int searchCount, double epsilon)
+	{
+		double x1 = _x1;
+		for(int i = 0; i < searchCount; i++)
+		{
+			double f1 = func.binaryGet(x1);
+			double f2 = func.binaryGet(x1 + epsilon);
+			double t = (f2 - f1) / epsilon;
+			x1 -= f1 / t;
+		}
+		return x1;
+		
+	}
 }
