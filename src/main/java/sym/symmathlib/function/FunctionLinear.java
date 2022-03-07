@@ -101,4 +101,12 @@ class FunctionLinear extends Function
 			return y;
 		}
 	}
+	
+	@Override
+	public FunctionLinear trans(VecTool.Func2 _func2)
+	{
+		double[] _xs = VecTool.copy(xs);
+		double[] _ys = VecTool.trans(x -> _func2.calc(x, get(x)), _xs);
+		return new FunctionLinear(_xs, _ys);
+	}
 }

@@ -17,4 +17,10 @@ class FunctionAnalytical extends Function
 	{
 		return func1.calc(x);
 	}
+	
+	@Override
+	public FunctionAnalytical trans(VecTool.Func2 _func2)
+	{
+		return new FunctionAnalytical(x -> _func2.calc(x, get(x)));
+	}
 }

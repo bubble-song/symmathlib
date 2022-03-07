@@ -17,4 +17,6 @@ public abstract class Function
 	{
 		return get(x);
 	}
+	
+	public abstract Function trans(VecTool.Func2 func2);
 }
