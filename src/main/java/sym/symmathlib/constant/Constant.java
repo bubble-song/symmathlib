@@ -12,4 +12,5 @@ public class Constant
 	public static final double C_C = 2.99792458e8;
 	public static final double C_AVOGADRO = 6.0221409e+23;
 	public static final double C_BOLTZMANN = 1.38064852e-23;
+	public static final double C_PLANCK = 6.62607004e-34;
 }
