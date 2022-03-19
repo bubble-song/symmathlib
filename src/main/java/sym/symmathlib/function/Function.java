@@ -19,4 +19,9 @@ public abstract class Function
 	}
 	
 	public abstract Function trans(VecTool.Func2 func2);
+	
+	public double[][] getData()
+	{
+		return null;
+	}
 }

@@ -117,6 +117,27 @@ public class VecTool
 		return ordering;
 	}
 	
+	public static double sum(double[] vec1)
+	{
+		double sum = 0;
+		for(double i : vec1)
+		{
+			sum += i;
+		}
+		return sum;
+	}
+	
+	public static double[] normalize(double[] vec1)
+	{
+		int length = vec1.length;
+		double[] ans = new double[length];
+		double mul = 1 / sum(vec1);
+		for(int i = 0; i < length; i++)
+		{
+			ans[i] = vec1[i] * mul;
+		}
+		return ans;
+	}
 	
 	@FunctionalInterface
 	public interface Func0

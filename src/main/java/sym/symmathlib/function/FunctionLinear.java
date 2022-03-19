@@ -109,4 +109,16 @@ class FunctionLinear extends Function
 		double[] _ys = VecTool.trans(x -> _func2.calc(x, get(x)), _xs);
 		return new FunctionLinear(_xs, _ys);
 	}
+	
+	@Override
+	public double[][] getData()
+	{
+		double[][] data = new double[2][length];
+		for(int i = 0; i < length; i++)
+		{
+			data[0][i] = xs[i];
+			data[1][i] = ys[i];
+		}
+		return data;
+	}
 }
