@@ -36,7 +36,28 @@ public class Distribution
 	{
 		public static double next(double lambda)
 		{
-			return Normal.next(lambda, Math.sqrt(lambda));
+			if(lambda < 20)
+			{
+				double expLambda = Math.exp(-lambda); //constant for terminating loop
+				double randUni; //uniform variable
+				double prodUni; //product of uniform variables
+				int randPoisson; //Poisson variable
+				
+				randPoisson = -1;
+				prodUni = 1;
+				do
+				{
+					randUni = random.nextDouble(); //generate uniform variable
+					prodUni = prodUni * randUni; //update product
+					randPoisson++; //increase Poisson variable
+					
+				} while(prodUni > expLambda);
+				return randPoisson;
+			}
+			else
+			{
+				return Normal.next(lambda, Math.sqrt(lambda));
+			}
 		}
 	}
 }
