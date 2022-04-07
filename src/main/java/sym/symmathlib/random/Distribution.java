@@ -4,8 +4,12 @@ import java.util.Random;
 
 public class Distribution
 {
-	//	static Random random = new Random(123123L);
-	static Random random = new Random(System.nanoTime());
+	static Random random = new Random(123123L);
+	
+	public static void randomize()
+	{
+		random = new Random(System.nanoTime());
+	}
 	
 	public static class Normal
 	{
