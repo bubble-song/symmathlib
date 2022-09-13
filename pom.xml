@@ -10,8 +10,33 @@
 	<version>0.1-alpha</version>
 	
 	<properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.source>18</maven.compiler.source>
+		<maven.compiler.target>18</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
-
+	
+	<distributionManagement>
+		<repository>
+			<id>nexus-sym</id>
+			<url>https://repo.sym123.cn/repository/maven-my/</url>
+		</repository>
+	</distributionManagement>
+	
+	<repositories>
+		<repository>
+			<id>my-repo1</id>
+			<name>your custom repo</name>
+			<url>https://repo.sym123.cn/repository/maven-my/</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>sym</groupId>
+			<artifactId>symplotlib</artifactId>
+			<version>0.1-alpha</version>
+		</dependency>
+	</dependencies>
+	
 </project>
