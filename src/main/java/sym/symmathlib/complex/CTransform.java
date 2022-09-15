@@ -57,13 +57,13 @@ public class CTransform
 			{
 				double c = Math.cos(_x * _k);
 				double s = Math.sin(_x * _k);
-				return c * input.getR(_x) + s * input.getI(_x);
+				return c * input.getR(_k) + s * input.getI(_k);
 			};
 			VecTool.Func1 func1I = (_k) ->
 			{
 				double c = Math.cos(_x * _k);
 				double s = Math.sin(_x * _k);
-				return c * input.getI(_x) - s * input.getR(_x);
+				return c * input.getI(_k) - s * input.getR(_k);
 			};
 			ysR[i] = Integrator.integral(func1R, range[0], range[1], pieceCount) / Math.sqrt(Constant.C_2PI);
 			ysI[i] = Integrator.integral(func1I, range[0], range[1], pieceCount) / Math.sqrt(Constant.C_2PI);
