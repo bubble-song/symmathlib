@@ -6,22 +6,22 @@ public class CFunctionLinear extends CFunction
 {
 	int length;
 	double[] xs;
-	double[] ysr;
-	double[] ysi;
+	double[] ysR;
+	double[] ysI;
 	int cur;
 	
-	public CFunctionLinear(double[] _xs, double[] _ysr, double[] _ysi)
+	public CFunctionLinear(double[] _xs, double[] _ysR, double[] _ysI)
 	{
 		int[] ordering = VecTool.getOrdering(_xs);
 		length = _xs.length;
 		xs = new double[length];
-		ysr = new double[length];
-		ysi = new double[length];
+		ysR = new double[length];
+		ysI = new double[length];
 		for(int i = 0; i < length; i++)
 		{
 			xs[i] = _xs[ordering[i]];
-			ysr[i] = _ysr[ordering[i]];
-			ysr[i] = _ysi[ordering[i]];
+			ysR[i] = _ysR[ordering[i]];
+			ysR[i] = _ysI[ordering[i]];
 		}
 		range = new double[]{xs[0], xs[length - 1]};
 		
@@ -33,19 +33,19 @@ public class CFunctionLinear extends CFunction
 	{
 		if(x < range[0])
 		{
-			return ysr[0];
+			return ysR[0];
 		}
 		else if(x > range[1])
 		{
-			return ysr[length - 1];
+			return ysR[length - 1];
 		}
 		else
 		{
 			findCur(x);
 			double x1 = xs[cur];
 			double x2 = xs[cur + 1];
-			double y1 = ysr[cur];
-			double y2 = ysr[cur + 1];
+			double y1 = ysR[cur];
+			double y2 = ysR[cur + 1];
 			double y = (y1 * (x2 - x) + y2 * (x - x1)) / (x2 - x1);
 			return y;
 		}
@@ -56,19 +56,19 @@ public class CFunctionLinear extends CFunction
 	{
 		if(x < range[0])
 		{
-			return ysi[0];
+			return ysI[0];
 		}
 		else if(x > range[1])
 		{
-			return ysi[length - 1];
+			return ysI[length - 1];
 		}
 		else
 		{
 			findCur(x);
 			double x1 = xs[cur];
 			double x2 = xs[cur + 1];
-			double y1 = ysi[cur];
-			double y2 = ysi[cur + 1];
+			double y1 = ysI[cur];
+			double y2 = ysI[cur + 1];
 			double y = (y1 * (x2 - x) + y2 * (x - x1)) / (x2 - x1);
 			return y;
 		}
@@ -115,11 +115,11 @@ public class CFunctionLinear extends CFunction
 	{
 		if(x < range[0])
 		{
-			return ysr[0];
+			return ysR[0];
 		}
 		else if(x > range[1])
 		{
-			return ysr[length - 1];
+			return ysR[length - 1];
 		}
 		else
 		{
@@ -127,8 +127,8 @@ public class CFunctionLinear extends CFunction
 			
 			double x1 = xs[_cur];
 			double x2 = xs[_cur + 1];
-			double y1 = ysr[_cur];
-			double y2 = ysr[_cur + 1];
+			double y1 = ysR[_cur];
+			double y2 = ysR[_cur + 1];
 			double y = (y1 * (x2 - x) + y2 * (x - x1)) / (x2 - x1);
 			return y;
 		}
@@ -139,11 +139,11 @@ public class CFunctionLinear extends CFunction
 	{
 		if(x < range[0])
 		{
-			return ysi[0];
+			return ysI[0];
 		}
 		else if(x > range[1])
 		{
-			return ysi[length - 1];
+			return ysI[length - 1];
 		}
 		else
 		{
@@ -151,19 +151,19 @@ public class CFunctionLinear extends CFunction
 			
 			double x1 = xs[_cur];
 			double x2 = xs[_cur + 1];
-			double y1 = ysi[_cur];
-			double y2 = ysi[_cur + 1];
+			double y1 = ysI[_cur];
+			double y2 = ysI[_cur + 1];
 			double y = (y1 * (x2 - x) + y2 * (x - x1)) / (x2 - x1);
 			return y;
 		}
 	}
 	
 	@Override
-	public CFunctionLinear trans(VecTool.Func3 _func3r, VecTool.Func3 _func3i)
+	public CFunctionLinear trans(VecTool.Func3 _func3R, VecTool.Func3 _func3I)
 	{
 		double[] _xs = VecTool.copy(xs);
-		double[] _ysr = VecTool.trans(x -> _func3r.calc(x, getR(x), getI(x)), _xs);
-		double[] _ysi = VecTool.trans(x -> _func3i.calc(x, getR(x), getI(x)), _xs);
+		double[] _ysr = VecTool.trans(x -> _func3R.calc(x, getR(x), getI(x)), _xs);
+		double[] _ysi = VecTool.trans(x -> _func3I.calc(x, getR(x), getI(x)), _xs);
 		return new CFunctionLinear(_xs, _ysr, _ysi);
 	}
 	
@@ -174,8 +174,8 @@ public class CFunctionLinear extends CFunction
 		for(int i = 0; i < length; i++)
 		{
 			data[0][i] = xs[i];
-			data[1][i] = ysr[i];
-			data[2][i] = ysi[i];
+			data[1][i] = ysR[i];
+			data[2][i] = ysI[i];
 		}
 		return data;
 	}

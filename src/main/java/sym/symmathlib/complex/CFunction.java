@@ -26,7 +26,7 @@ public abstract class CFunction
 		return getI(x);
 	}
 	
-	public abstract CFunction trans(VecTool.Func3 func3r, VecTool.Func3 func3i);
+	public abstract CFunction trans(VecTool.Func3 func3R, VecTool.Func3 func3I);
 	
 	public double[][] getData()
 	{
