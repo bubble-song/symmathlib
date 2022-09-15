@@ -1,8 +1,10 @@
 package sym.symmathlib.complex;
 
+import sym.symmathlib.function.Function;
+import sym.symmathlib.function.Interpolator;
 import sym.symmathlib.vector.VecTool;
 
-public class CFunctionLinear extends CFunction
+class CFunctionLinear extends CFunction
 {
 	int length;
 	double[] xs;
@@ -178,5 +180,35 @@ public class CFunctionLinear extends CFunction
 			data[2][i] = ysI[i];
 		}
 		return data;
+	}
+	
+	@Override
+	public Function getFuncR()
+	{
+		double[] _xs = VecTool.copy(xs);
+		double[] _ys = VecTool.copy(ysR);
+		return Interpolator.getFunctionLinear(_xs, _ys);
+	}
+	
+	@Override
+	public Function getFuncI()
+	{
+		double[] _xs = VecTool.copy(xs);
+		double[] _ys = VecTool.copy(ysI);
+		return Interpolator.getFunctionLinear(_xs, _ys);
+	}
+	
+	@Override
+	public Function getFuncAbs()
+	{
+		VecTool.Func1 func = (x) ->
+		{
+			double r = getR(x);
+			double i = getI(x);
+			return Math.sqrt(r * r + i + i);
+		};
+		double[] _xs = VecTool.copy(xs);
+		double[] _ys = VecTool.trans(func, xs);
+		return Interpolator.getFunctionLinear(_xs, _ys);
 	}
 }

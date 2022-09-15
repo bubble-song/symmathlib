@@ -3,7 +3,7 @@ package sym.symmathlib.complex;
 import sym.symmathlib.function.Function;
 import sym.symmathlib.vector.VecTool;
 
-public abstract class CFunction
+abstract class CFunction
 {
 	double[] range;
 	
@@ -32,4 +32,10 @@ public abstract class CFunction
 	{
 		return null;
 	}
+	
+	public abstract Function getFuncR();
+	
+	public abstract Function getFuncI();
+	
+	public abstract Function getFuncAbs();
 }
