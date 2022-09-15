@@ -10,7 +10,7 @@ public class CTransform
 	//kernel: e^ikx
 	public static CFunction fourier(CFunction input, double[] _xs)
 	{
-		int pieceCount = 1000;
+		int pieceCount = input.getData()[0].length;
 		int length = _xs.length;
 		double[] xs = VecTool.copy(_xs);
 		double[] ysR = new double[length];

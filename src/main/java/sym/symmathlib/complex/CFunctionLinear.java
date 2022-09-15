@@ -23,7 +23,7 @@ class CFunctionLinear extends CFunction
 		{
 			xs[i] = _xs[ordering[i]];
 			ysR[i] = _ysR[ordering[i]];
-			ysR[i] = _ysI[ordering[i]];
+			ysI[i] = _ysI[ordering[i]];
 		}
 		range = new double[]{xs[0], xs[length - 1]};
 		
