@@ -156,4 +156,22 @@ public class VecTool
 	{
 		double calc(double x1, double x2);
 	}
+	
+	@FunctionalInterface
+	public interface Func3
+	{
+		double calc(double x1, double x2, double x3);
+	}
+	
+	@FunctionalInterface
+	public interface Func4
+	{
+		double calc(double x1, double x2, double x3, double x4);
+	}
+	
+	@FunctionalInterface
+	public interface Func5
+	{
+		double calc(double x1, double x2, double x3, double x4, double x5);
+	}
 }

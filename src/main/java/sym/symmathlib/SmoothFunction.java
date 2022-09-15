@@ -60,7 +60,7 @@
 //		return s;
 //	}
 //
-//	public double get(double x)
+//	public double getR(double x)
 //	{
 //		if(x < xs[0] || x > xs[length - 1])
 //		{
@@ -93,7 +93,7 @@
 //	{
 //		for(int i = 0; i < xsNew.length; i++)
 //		{
-//			ysNew[i] = get(xsNew[i]);
+//			ysNew[i] = getR(xsNew[i]);
 //		}
 //	}
 //
@@ -110,9 +110,9 @@
 //			throw new RuntimeException("smooth function range out of available range!");
 //		}
 //
-//		double y1 = get(x1);
+//		double y1 = getR(x1);
 //		int cur1 = cur;
-//		double y2 = get(x2);
+//		double y2 = getR(x2);
 //		int cur2 = cur;
 //		double s1 = -0.5 * (y1 + ys[cur1]) * (x1 - xs[cur1]);
 //		double s2 = +0.5 * (y2 + ys[cur2]) * (x2 - xs[cur2]);
@@ -141,7 +141,7 @@
 //			int cur1, cur2;
 //			double s1, s2, s3 = 0;
 //			{
-//				double y1 = get(x1);
+//				double y1 = getR(x1);
 //				double y2 = ys[cur];
 //				double y3 = func.calc(x1);
 //				double y4 = func.calc(xs[cur]);
@@ -149,7 +149,7 @@
 //				s1 = -(val1 * (y1 * y4 + y2 * y3) + val2 * (y1 * y3 + y2 * y4)) * (x1 - xs[cur]);
 //			}
 //			{
-//				double y1 = get(x2);
+//				double y1 = getR(x2);
 //				double y2 = ys[cur];
 //				double y3 = func.calc(x2);
 //				double y4 = func.calc(xs[cur]);
@@ -269,7 +269,7 @@
 //			return ans;
 //		};
 ////		double convolution = convolution(weight, x1, x2);
-//		double convolution = integral((_x) -> (weight.calc(_x) * get(_x)), x1, x2, 1000);
+//		double convolution = integral((_x) -> (weight.calc(_x) * getR(_x)), x1, x2, 1000);
 //		return convolution;
 //	}
 //
@@ -300,7 +300,7 @@
 //			return ans;
 //		};
 ////		double convolution = convolution(weight, x1, x2);
-//		double convolution = integral((_x) -> (weight.calc(_x) * get(_x)), x1, x2, 1000);
+//		double convolution = integral((_x) -> (weight.calc(_x) * getR(_x)), x1, x2, 1000);
 //		return convolution;
 //	}
 //
@@ -331,7 +331,7 @@
 //			return ans;
 //		};
 ////		 double convolution = convolution(weight, x1, x2);
-//		double convolution = integral((_x) -> (weight.calc(_x) * get(_x)), x1, x2, 1000);
+//		double convolution = integral((_x) -> (weight.calc(_x) * getR(_x)), x1, x2, 1000);
 //		return convolution;
 //	}
 //}
