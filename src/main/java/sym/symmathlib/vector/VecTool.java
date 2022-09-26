@@ -96,6 +96,21 @@ public class VecTool
 		return target;
 	}
 	
+	public static double[][] copy(double[][] xs)
+	{
+		double[][] target = new double[xs.length][xs[0].length];
+		return copy(xs, target);
+	}
+	
+	public static double[][] copy(double[][] xs, double[][] target)
+	{
+		for(int i = 0; i < xs.length; i++)
+		{
+			System.arraycopy(xs[i], 0, target[i], 0, xs[i].length);
+		}
+		return target;
+	}
+	
 	public static double[] trans(Func1 func, double[] xs)
 	{
 		double[] target = new double[xs.length];

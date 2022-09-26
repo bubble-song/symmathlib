@@ -33,11 +33,11 @@ class CFunctionLinear extends CFunction
 	@Override
 	public double getR(double x)
 	{
-		if(x < range[0])
+		if(x <= range[0])
 		{
 			return ysR[0];
 		}
-		else if(x > range[1])
+		else if(x >= range[1])
 		{
 			return ysR[length - 1];
 		}
@@ -56,11 +56,11 @@ class CFunctionLinear extends CFunction
 	@Override
 	public double getI(double x)
 	{
-		if(x < range[0])
+		if(x <= range[0])
 		{
 			return ysI[0];
 		}
-		else if(x > range[1])
+		else if(x >= range[1])
 		{
 			return ysI[length - 1];
 		}

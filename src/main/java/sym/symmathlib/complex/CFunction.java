@@ -16,6 +16,19 @@ public abstract class CFunction
 	
 	public abstract double getI(double x);
 	
+	public double getAbs2(double x)
+	{
+		double r = getR(x);
+		double i = getI(x);
+		return r * r + i * i;
+	}
+	
+	public double getAbs(double x)
+	{
+		return Math.sqrt(getAbs2(x));
+	}
+	
+	
 	public double binaryGetR(double x)
 	{
 		return getR(x);

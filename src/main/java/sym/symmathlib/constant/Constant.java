@@ -7,6 +7,7 @@ public class Constant
 	public static final double C_E = 2.718281828459045;
 	
 	public static final double C_2PI = C_PI * 2;
+	public static final double C_SQRT_2PI = Math.sqrt(C_2PI);
 	
 	//physics
 	public static final double C_C = 2.99792458e8;

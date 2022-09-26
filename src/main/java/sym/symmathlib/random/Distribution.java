@@ -11,6 +11,27 @@ public class Distribution
 		random = new Random(System.nanoTime());
 	}
 	
+	public static void randomize(long seed)
+	{
+		random = new Random(seed);
+	}
+	
+	//evenly distributed
+	public static class Flat
+	{
+		//0-1
+		public static double next()
+		{
+			return random.nextDouble();
+		}
+		
+		public static double next(double x1, double x2)
+		{
+			double rnd = random.nextDouble();
+			return x1 + rnd * (x2 - x1);
+		}
+	}
+	
 	public static class Normal
 	{
 		//Box Muller Transform
