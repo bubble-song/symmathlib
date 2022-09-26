@@ -76,21 +76,19 @@ public class CTransform
 	}
 	
 	//accelerated fourier transform using chirp z-transform
-	public static CFunction dft(CFunction input, double[] _ks)
+	public static CFunction dft(CFunction input, double[] ks)
 	{
 		double[][] xyRIs = input.getData();
-		double[] ks = VecTool.copy(_ks);
-		double[][] yRIs = VecFourier.czt(xyRIs, ks);
-		return CInterpolator.getFunctionLinear(ks, yRIs[0], yRIs[1]);
+		double[][] kyRIs = VecFourier.czt(xyRIs, ks);
+		return CInterpolator.getFunctionLinear(kyRIs[0], kyRIs[1], kyRIs[2]);
 	}
 	
 	//accelerated fourier inverse transform using chirp z-transform
-	public static CFunction dftInverse(CFunction input, double[] _xs)
+	public static CFunction dftInverse(CFunction input, double[] xs)
 	{
 		double[][] kyRIs = input.getData();
-		double[] xs = VecTool.copy(_xs);
-		double[][] yRIs = VecFourier.cztInverse(kyRIs, xs);
-		return CInterpolator.getFunctionLinear(xs, yRIs[0], yRIs[1]);
+		double[][] xyRIs = VecFourier.cztInverse(kyRIs, xs);
+		return CInterpolator.getFunctionLinear(xyRIs[0], xyRIs[1], xyRIs[2]);
 	}
 
 //	public static CFunction fourierParallel(CFunction input, double[] _xs, int threadCount)

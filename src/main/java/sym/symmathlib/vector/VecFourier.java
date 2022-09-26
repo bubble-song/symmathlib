@@ -22,7 +22,7 @@ public class VecFourier
 		FastFourierTransformer.transformInPlace(ysRI, DftNormalization.UNITARY, TransformType.INVERSE);
 		return ysRI;
 	}
-	
+
 //	public static double[][] dft(double[][] _xyRIs, double[] _ks)
 //	{
 //		int N = _xyRIs[0].length;
@@ -57,14 +57,14 @@ public class VecFourier
 	{
 		ChirpZ chirpZ = new ChirpZ(xyRIs[0], ks);
 		double[][] yRIs = chirpZ.czt(new double[][]{xyRIs[1], xyRIs[2]});
-		return new double[][]{ks, yRIs[0], yRIs[1]};
+		return new double[][]{VecTool.copy(ks), yRIs[0], yRIs[1]};
 	}
 	
 	public static double[][] cztInverse(double[][] kyRIs, double[] xs)
 	{
 		ChirpZ chirpZ = new ChirpZ(kyRIs[0], xs);
 		double[][] yRIs = chirpZ.cztInverse(new double[][]{kyRIs[1], kyRIs[2]});
-		return new double[][]{xs, yRIs[0], yRIs[1]};
+		return new double[][]{VecTool.copy(xs), yRIs[0], yRIs[1]};
 	}
 	
 	public static class ChirpZ
