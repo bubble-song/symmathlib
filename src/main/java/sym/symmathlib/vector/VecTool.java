@@ -96,6 +96,21 @@ public class VecTool
 		return target;
 	}
 	
+	public static double[][] copy(double[][] xs)
+	{
+		double[][] target = new double[xs.length][xs[0].length];
+		return copy(xs, target);
+	}
+	
+	public static double[][] copy(double[][] xs, double[][] target)
+	{
+		for(int i = 0; i < xs.length; i++)
+		{
+			System.arraycopy(xs[i], 0, target[i], 0, xs[i].length);
+		}
+		return target;
+	}
+	
 	public static double[] trans(Func1 func, double[] xs)
 	{
 		double[] target = new double[xs.length];
@@ -155,5 +170,23 @@ public class VecTool
 	public interface Func2
 	{
 		double calc(double x1, double x2);
+	}
+	
+	@FunctionalInterface
+	public interface Func3
+	{
+		double calc(double x1, double x2, double x3);
+	}
+	
+	@FunctionalInterface
+	public interface Func4
+	{
+		double calc(double x1, double x2, double x3, double x4);
+	}
+	
+	@FunctionalInterface
+	public interface Func5
+	{
+		double calc(double x1, double x2, double x3, double x4, double x5);
 	}
 }

@@ -1,10 +1,11 @@
-package sym.symmathlib.function;
+package sym.symmathlib.complex;
 
+import sym.symmathlib.function.Integrator;
 import sym.symmathlib.vector.VecTool;
 
-public class Differentiator
+public class CDifferentiator
 {
-	public static double derivative0(Function func, double x, double radius)
+	public static double[] derivative0(CFunction func, double x, double radius)
 	{
 		double x1 = x - radius;
 		double x2 = x + radius;
@@ -35,11 +36,12 @@ public class Differentiator
 			double ans = val2 * (1 + c) * (1 + c);
 			return ans;
 		};
-		double convolution = Integrator.integral((_x) -> (weight.calc(_x) * func.get(_x)), x1, x2, 1000);
-		return convolution;
+		double convolutionR = Integrator.integral((_x) -> (weight.calc(_x) * func.getR(_x)), x1, x2, 1000);
+		double convolutionI = Integrator.integral((_x) -> (weight.calc(_x) * func.getI(_x)), x1, x2, 1000);
+		return new double[]{convolutionR, convolutionI};
 	}
 	
-	public static double derivative1(Function func, double x, double radius)
+	public static double[] derivative1(CFunction func, double x, double radius)
 	{
 		double x1 = x - radius;
 		double x2 = x + radius;
@@ -66,11 +68,12 @@ public class Differentiator
 			double ans = val2 * -2 * s * (1 + c);
 			return ans;
 		};
-		double convolution = Integrator.integral((_x) -> (weight.calc(_x) * func.get(_x)), x1, x2, 1000);
-		return convolution;
+		double convolutionR = Integrator.integral((_x) -> (weight.calc(_x) * func.getR(_x)), x1, x2, 1000);
+		double convolutionI = Integrator.integral((_x) -> (weight.calc(_x) * func.getI(_x)), x1, x2, 1000);
+		return new double[]{convolutionR, convolutionI};
 	}
 	
-	public static double derivative2(Function func, double x, double radius)
+	public static double[] derivative2(CFunction func, double x, double radius)
 	{
 		double x1 = x - radius;
 		double x2 = x + radius;
@@ -97,7 +100,8 @@ public class Differentiator
 			double ans = val2 * 4 * (1 + c) * (0.5 - c);
 			return ans;
 		};
-		double convolution = Integrator.integral((_x) -> (weight.calc(_x) * func.get(_x)), x1, x2, 1000);
-		return convolution;
+		double convolutionR = Integrator.integral((_x) -> (weight.calc(_x) * func.getR(_x)), x1, x2, 1000);
+		double convolutionI = Integrator.integral((_x) -> (weight.calc(_x) * func.getI(_x)), x1, x2, 1000);
+		return new double[]{convolutionR, convolutionI};
 	}
 }
